@@ -41,7 +41,7 @@ public class controlador {
                     ac.cambiarVolumen(v.menuVolumen());
                     break;
                 case 3: // cambiar a modo radio
-
+                    menuRadio();
                     break;
                 case 4: // cambiar a modo reproduccion
                     break;
@@ -60,16 +60,22 @@ public class controlador {
 * */
     public void menuRadio(){
         r.cambiarModo("Radio");
+        
         boolean bandera = true;
         while(bandera){
+            v.mostrarMensaje(estadoRadio());
             switch(v.menuRadio()){
                 case 1: // cambiar am a fm
+                v.mostrarMensaje(ac.cambiarbanda());
                     break;
                 case 2: // cambiar emisora
+                v.mostrarMensaje(ac.cambiaremisoras(v.cambioEmisora()));
                     break;
                 case 3: // guardar emisora
+                v.mostrarMensaje(ac.guardaremisora());
                     break;
                 case 4: // mostrar emisoras guardadas
+                v.mostrarMensaje(r.getEmisorasGuardadas().toString());
                     break;
                 case 5: // salir de modo radio
                     bandera = false;
@@ -91,7 +97,8 @@ public class controlador {
             mensaje += "Estado: encendido";
             mensaje += "\nVolumen: "+ r.getVolumen();
             if (r.getModo().equals("Radio")){
-                mensaje += "\nEmisora: "; // agregar emisora
+                mensaje += "\nEmisora: "+r.getEmisoraR(); 
+                mensaje +="\nFrecuencia: "+r.getFrecuencia();
             } else if(r.getModo().equals("Reproduccion")){
                 mensaje += "\nCancion: " ; // agregar atributos canciones
             } else if(r.getModo().equals("Telefono")){

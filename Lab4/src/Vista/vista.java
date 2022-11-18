@@ -34,7 +34,7 @@ public class vista {
 
     public int menuRadio(){
         int opi;
-        System.out.println("-------------- MODO RADIO --------------" +
+        System.out.println("-------------- MODO RADIO --------------\n" +
                 "Elija una de las opciones siguientes: \n 1) Cambiar de AM a FM \n 2) Cambiar emisora " +
                 "\n 3) Guardar emisora \n 4) Mostrar emisoras guardadas \n 5) Salir de modo radio ");
         opi = sc.nextInt();
@@ -49,9 +49,16 @@ public class vista {
         return opi;
     }
 
+    public int cambioEmisora(){
+        int opi;
+        System.out.println("Elija una de las opciones siguientes: \n 1) Siguiente emisora \n 2) Emisora anterior");
+        opi = sc.nextInt();
+        return opi;
+    }
+
     public int menuReproduccion(){
         int opi;
-        System.out.println("-------------- MODO REPRODUCCION --------------" +
+        System.out.println("-------------- MODO REPRODUCCION --------------\n" +
                 "Elija una de las opciones siguientes: \n 1) Colocar un CD \n 2) Canciones MP3 " +
                 "\n 3) Conectar Spotify \n 4) Cambiar cancion " +
                 " 5) Salir de modo reproduccion  ");
@@ -61,7 +68,7 @@ public class vista {
 
     public int menuTelefono(){
         int opi;
-        System.out.println("-------------- MODO TELEFONO --------------" +
+        System.out.println("-------------- MODO TELEFONO --------------\n" +
                 "Elija una de las opciones siguientes: \n 1) Conectar/desconectar Telefono" +
                 " \n 2) Mostrar contactos " +
                 "\n 3) Llamar contactos \n 4) Finalizar llamada " +
@@ -72,7 +79,7 @@ public class vista {
 
     public int menuProductividad(){
         int opi;
-        System.out.println("-------------- MODO PRODUCTIVIDAD --------------" +
+        System.out.println("-------------- MODO PRODUCTIVIDAD --------------\n" +
                 "Elija una de las opciones siguientes: \n 1) Ver pronostico del tiempo \n 2) Salir de modo productividad");
         opi = sc.nextInt();
         return opi;

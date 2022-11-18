@@ -19,31 +19,32 @@ public class acciones implements iProductividad, iRadio, iReproduccion, iTelefon
 
     @Override
     public String vertiempo() {
+
         return null;
     }
 
     @Override
     public String cambiarbanda() {
-
-        return null;
+        r.cambiarFrecuencia();
+        return "Se ha cambiado la frecuencia";
     }
 
     @Override
-    public String cambiaremisoras() {
-
-        return null;
+    public String cambiaremisoras(int i) {
+        r.cambiarEmisora(i);
+        return "Se ha cambiado la emisora";
     }
 
     @Override
     public String guardaremisora() {
-
-        return null;
+        r.guardarEmisora();
+        return "Se ha guardado la emisora";
     }
 
     @Override
     public String cargaremisora() {
-
-        return null;
+        r.cargarEmisora();
+        return "Se ha cargado la emisora";
     }
 
     @Override

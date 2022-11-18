@@ -7,9 +7,14 @@ public class radio{
     private String modo;                                // indica si esta en modo radio, reproduccion o telefono
     private int volumen;                                // volumen de la radio
 
-    private boolean frecuencia;                          // indica si es AM o FM
-    private double emisoraR;                            // indica la emisora en reproduccion
-    private ArrayList<String> emisorasGuardadas;        // indica las emisoras guardadas
+    private boolean frecuencia;                          // indica si es AM o FM. Verdadero es AM Y Falso es FM
+    private double emisoraR=80.5;                            // indica la emisora en reproduccion
+ 
+
+
+
+    private ArrayList<String> emisorasGuardadas = new ArrayList<String>();        // indica las emisoras guardadas
+
     private int cont = 0;                                   //Contador de emisoras
 
 
@@ -49,9 +54,9 @@ public class radio{
      */
     public void cambiarVolumen(int i){
         if (i == 1){
-            volumen += 1;
+            volumen ++;
         }else{
-            volumen -= 1;
+            volumen --;
         }
     }
 
@@ -70,7 +75,25 @@ public class radio{
         return modo;
     }
 
+
     // -------- MODO RADIO ----------
+    public ArrayList<String> getEmisorasGuardadas() {
+        return emisorasGuardadas;
+    }
+    public double getEmisoraR() {
+        return emisoraR;
+    }
+    public String getFrecuencia(){
+        String respuesta = "";
+        if (frecuencia){
+            respuesta = "AM";  
+        }
+        else {
+            respuesta = "FM";
+        }
+        return respuesta;
+    }
+
     /**
      * funcion para cambiar el estado de la frecuencia, AM o FM
      */
@@ -80,7 +103,13 @@ public class radio{
         else
             this.frecuencia = true;
     }
-
+    public void cambiarEmisora(int i){
+        if (i == 1){
+            emisoraR +=0.5;
+        }else{
+            emisoraR -=0.5;
+        }
+    }
     /*
      * funcion para guardar una emisora 
      */
