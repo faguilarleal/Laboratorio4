@@ -1,5 +1,9 @@
-public class Main {
-    public static void main(String[] args) {
 
+import Controlador.*;
+public class Main {
+
+    public static void main(String[] args) {
+        controlador c = new controlador();
+        c.empezar();
     }
 }

@@ -24,9 +24,10 @@ public class radio {
     private String pronostico;                          // guarda el pronostico del tiempo
 
     // constructor
-    radio(){
+    public radio(){
         this.encendido = false;
         this.modo = "radio";
+        crearCanciones();
     }
 
     // -------- general --------
@@ -63,8 +64,41 @@ public class radio {
 
         // canciones MP3
         cancionsMP3.add(new cancion("Swing","Danny Ocean", "2:35"));
+        cancionsMP3.add(new cancion("Te felicito","Shakira", "2:52"));
+        cancionsMP3.add(new cancion("Antologia","Shakira", "4:14"));
+        cancionsMP3.add(new cancion("Muerte en Hawaii","Calle 13", "3:10"));
+        cancionsMP3.add(new cancion("Con altura","La Rosalia", "2:35"));
+
+        // canciones Spotify
+        cancionesSpotify.add(new cancion("Llamada perdida", "Morat","2:45"));
+        cancionesSpotify.add(new cancion("Stand by me", "Oasis","5:56"));
+        cancionesSpotify.add(new cancion("Vienna", "Billie Joel","3:34"));
+        cancionesSpotify.add(new cancion("Something", "The Beatles","3:02"));
+
     }
 
+    public void setTipoReproduccion(String tipo){
+        tipoReproduccion = tipo;
+    }
+
+    /**
+     * @return lista de canciones correspondientes al modo en el que este
+     */
+    public ArrayList<cancion> getListaCanciones(){
+        ArrayList<cancion> respuesta = new ArrayList<cancion>();
+        if (tipoReproduccion == "CD"){
+            respuesta = cancionesCD;
+        } else if (tipoReproduccion == "MP3"){
+            respuesta = cancionsMP3;
+        } else if (tipoReproduccion == "Spotify"){
+            respuesta = cancionesSpotify;
+        }
+        return respuesta;
+    }
+
+    /**
+     * @param indice, indica que cancion se escoge
+     */
     public void cambiarCancion(int indice){
        if (tipoReproduccion == "CD"){
            cancionReprodiccion = cancionesCD.get(indice);
@@ -74,7 +108,7 @@ public class radio {
            cancionReprodiccion = cancionesSpotify.get(indice);
        }
     }
-    
+
 
 
     // -------- MODO TELEFONO ---------

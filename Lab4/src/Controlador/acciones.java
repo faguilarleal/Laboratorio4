@@ -1,7 +1,17 @@
 package Controlador;
 import Interfaces.*;
+import modelo.*;
 
 public class acciones implements iProductividad, iRadio, iReproduccion, iTelefono{
+
+    radio r = new radio();
+
+    public String encenderApagar(){
+        r.cambiarEstado();
+        return "---- Se ha prendido la radio ----";
+    }
+
+
     @Override
     public String vertiempo() {
         return null;
