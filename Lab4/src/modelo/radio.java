@@ -12,7 +12,10 @@ public class radio {
     private ArrayList<String> emisorasGuardadas;        // indica las emisoras guardadas
     private int volumen;                                // volumen de la radio
 
-    private cancion[] cancionesGuardadas;      // lista de reproduccion
+    private String tipoReproduccion;                    // saber si es cd, mp3 o spotify
+    private ArrayList<cancion> cancionesCD = new ArrayList<cancion>();        // lista de reproduccion
+    private ArrayList<cancion> cancionsMP3 = new ArrayList<cancion>();
+    private ArrayList<cancion> cancionesSpotify = new ArrayList<cancion>();
     private cancion cancionReprodiccion;                // cancion que se reproduce
 
     private boolean telefono;                           // indica si existe un telefono conectado
@@ -51,8 +54,28 @@ public class radio {
     // -------- MODO REPRODUCIR -------
 
     public void crearCanciones(){
+        // canciones CD (Folklore)
+        cancionesCD.add(new cancion("cardigan", "Taylor Swift", "3:59"));
+        cancionesCD.add(new cancion("my tears ricochet", "Taylor Swift", "4:15"));
+        cancionesCD.add(new cancion("seven", "Taylor Swift", "3:28"));
+        cancionesCD.add(new cancion("august", "Taylor Swift", "4:21"));
+        cancionesCD.add(new cancion("mad woman", "Taylor Swift", "3:57"));
 
+        // canciones MP3
+        cancionsMP3.add(new cancion("Swing","Danny Ocean", "2:35"));
     }
+
+    public void cambiarCancion(int indice){
+       if (tipoReproduccion == "CD"){
+           cancionReprodiccion = cancionesCD.get(indice);
+       } else if (tipoReproduccion == "MP3"){
+           cancionReprodiccion = cancionsMP3.get(indice);
+       } else if (tipoReproduccion == "Spotify"){
+           cancionReprodiccion = cancionesSpotify.get(indice);
+       }
+    }
+    
+
 
     // -------- MODO TELEFONO ---------
 

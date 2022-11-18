@@ -4,10 +4,12 @@ public class cancion {
 
     String nombre;
     String autor;
-    float duracion;
+    String duracion;
 
-    cancion(){
-
+    cancion(String nombre, String autor, String duracion){
+        this.nombre = nombre;
+        this.autor = autor;
+        this.duracion = duracion;
     }
 
     public String getNombre(){
@@ -18,7 +20,7 @@ public class cancion {
         return autor;
     }
 
-    public float getDuracion(){
+    public String getDuracion(){
         return duracion;
     }
 
