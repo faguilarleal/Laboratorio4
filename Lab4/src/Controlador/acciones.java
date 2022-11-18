@@ -3,14 +3,19 @@ import Interfaces.*;
 import modelo.*;
 
 public class acciones implements iProductividad, iRadio, iReproduccion, iTelefono{
+    radio r;
 
-    radio r = new radio();
-
-    public String encenderApagar(){
-        r.cambiarEstado();
-        return "---- Se ha prendido la radio ----";
+    public acciones(radio r){
+        this.r = r;
     }
 
+    public void encenderApagar(){
+        r.cambiarEstado();
+    }
+
+    public void cambiarVolumen(int i){
+        r.cambiarVolumen(i);
+    }
 
     @Override
     public String vertiempo() {

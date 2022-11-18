@@ -5,12 +5,13 @@ public class radio {
 
     private boolean encendido;                          // indica si la radio esta encendida(true)o apagada(false)
     private String modo;                                // indica si esta en modo radio, reproduccion o telefono
+    private int volumen;                                // volumen de la radio
 
     private String frecuencia;                          // indica si es AM o FM
     private String emisoraR;                            // indica la emisora en reproduccion
     private ArrayList<String> emisoras;                 // arraylist de todas las emisoras
     private ArrayList<String> emisorasGuardadas;        // indica las emisoras guardadas
-    private int volumen;                                // volumen de la radio
+
 
     private String tipoReproduccion;                    // saber si es cd, mp3 o spotify
     private ArrayList<cancion> cancionesCD = new ArrayList<cancion>();        // lista de reproduccion
@@ -18,9 +19,10 @@ public class radio {
     private ArrayList<cancion> cancionesSpotify = new ArrayList<cancion>();
     private cancion cancionReprodiccion;                // cancion que se reproduce
 
+    // modo telefono
     private boolean telefono;                           // indica si existe un telefono conectado
     private String[] contactos;                         // lista de contactos
-
+    // modo productividad
     private String pronostico;                          // guarda el pronostico del tiempo
 
     // constructor
@@ -31,6 +33,9 @@ public class radio {
     }
 
     // -------- general --------
+    /**
+     * funcion para cambiar el estado de la radio, apagar encender
+     */
     public void cambiarEstado(){
         if (encendido)
             this.encendido = false;
@@ -38,6 +43,21 @@ public class radio {
             this.encendido = true;
     }
 
+    /**
+     * funcion de cambiar el volumen
+     * @param i indica si se sube (1) o baja (2) el volumen.
+     */
+    public void cambiarVolumen(int i){
+        if (i == 1){
+            volumen += 1;
+        }else{
+            volumen -= 1;
+        }
+    }
+
+    public int getVolumen(){
+        return volumen;
+    }
     public boolean getEstado(){
         return encendido;
     }
