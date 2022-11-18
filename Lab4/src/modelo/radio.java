@@ -10,6 +10,7 @@ public class radio{
     private boolean frecuencia;                          // indica si es AM o FM
     private double emisoraR;                            // indica la emisora en reproduccion
     private ArrayList<String> emisorasGuardadas;        // indica las emisoras guardadas
+    private int cont = 0;                                   //Contador de emisoras
 
 
     private String tipoReproduccion;                    // saber si es cd, mp3 o spotify
@@ -91,7 +92,7 @@ public class radio{
      * funcion para cargar emisora
      */
     public double cargarEmisora(){
-        int cont =0;
+        cont = cont%emisorasGuardadas.size();
         emisoraR = Double.parseDouble(emisorasGuardadas.get(cont));
         cont++;
         return emisoraR;
