@@ -41,6 +41,7 @@ public class controlador {
                     ac.cambiarVolumen(v.menuVolumen());
                     break;
                 case 3: // cambiar a modo radio
+
                     break;
                 case 4: // cambiar a modo reproduccion
                     break;
@@ -51,6 +52,35 @@ public class controlador {
             }
         }
     }
+/*
+* "Elija una de las opciones siguientes: \n 1) Cambiar de AM a FM \n 2) Cambiar emisora " +
+                "\n 3) Guardar emisora \n 4) Mostrar emisoras guardadas \n 5) Salir de modo radio ");
+*
+*
+* */
+    public void menuRadio(){
+        r.cambiarModo("Radio");
+        boolean bandera = true;
+        while(bandera){
+            switch(v.menuRadio()){
+                case 1: // cambiar am a fm
+                    break;
+                case 2: // cambiar emisora
+                    break;
+                case 3: // guardar emisora
+                    break;
+                case 4: // mostrar emisoras guardadas
+                    break;
+                case 5: // salir de modo radio
+                    bandera = false;
+                    break;
+            }
+        }
+    }
+
+
+
+
 
     /**
      * @return string del estado de la radio
@@ -60,6 +90,15 @@ public class controlador {
         if(r.getEstado()){
             mensaje += "Estado: encendido";
             mensaje += "\nVolumen: "+ r.getVolumen();
+            if (r.getModo().equals("Radio")){
+                mensaje += "\nEmisora: "; // agregar emisora
+            } else if(r.getModo().equals("Reproduccion")){
+                mensaje += "\nCancion: " ; // agregar atributos canciones
+            } else if(r.getModo().equals("Telefono")){
+
+            } else if(r.getModo().equals("Productividad")){
+
+            }
         }else{
             mensaje += "Estado: apagado";
         }
@@ -67,6 +106,8 @@ public class controlador {
 
         return mensaje;
     }
+
+
 
 
 

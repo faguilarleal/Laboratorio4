@@ -31,19 +31,20 @@ public class vista {
         opi = sc.nextInt();
         return opi;
     }
-    public int menuEmisora(){
-        int opi;
-        System.out.println("Elija una de las opciones siguientes: " +
-                "\n 1) Cambiar emisora para arriba \n 2) Cambiar emisora para abajo");
-        opi = sc.nextInt();
-        return opi;
-    }
 
     public int menuRadio(){
         int opi;
         System.out.println("-------------- MODO RADIO --------------" +
                 "Elija una de las opciones siguientes: \n 1) Cambiar de AM a FM \n 2) Cambiar emisora " +
                 "\n 3) Guardar emisora \n 4) Mostrar emisoras guardadas \n 5) Salir de modo radio ");
+        opi = sc.nextInt();
+        return opi;
+    }
+
+    public int menuEmisora(){
+        int opi;
+        System.out.println("Elija una de las opciones siguientes: " +
+                "\n 1) Cambiar emisora para arriba \n 2) Cambiar emisora para abajo");
         opi = sc.nextInt();
         return opi;
     }
