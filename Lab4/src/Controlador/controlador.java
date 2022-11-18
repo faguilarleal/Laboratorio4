@@ -41,7 +41,7 @@ public class controlador {
                     ac.cambiarVolumen(v.menuVolumen());
                     break;
                 case 3: // cambiar a modo radio
-
+                    menuRadio();
                     break;
                 case 4: // cambiar a modo reproduccion
                     break;
@@ -59,6 +59,7 @@ public class controlador {
 *
 * */
     public void menuRadio(){
+        v.mostrarMensaje(estadoRadio());
         r.cambiarModo("Radio");
         boolean bandera = true;
         while(bandera){
@@ -77,8 +78,6 @@ public class controlador {
             }
         }
     }
-
-
 
 
 
