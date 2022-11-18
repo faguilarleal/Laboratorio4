@@ -1,15 +1,14 @@
 package modelo;
 
 import java.util.ArrayList;
-public class radio {
+public class radio{
 
     private boolean encendido;                          // indica si la radio esta encendida(true)o apagada(false)
     private String modo;                                // indica si esta en modo radio, reproduccion o telefono
     private int volumen;                                // volumen de la radio
 
-    private String frecuencia;                          // indica si es AM o FM
-    private String emisoraR;                            // indica la emisora en reproduccion
-    private ArrayList<String> emisoras;                 // arraylist de todas las emisoras
+    private boolean frecuencia;                          // indica si es AM o FM
+    private double emisoraR;                            // indica la emisora en reproduccion
     private ArrayList<String> emisorasGuardadas;        // indica las emisoras guardadas
 
 
@@ -71,6 +70,34 @@ public class radio {
     }
 
     // -------- MODO RADIO ----------
+    /**
+     * funcion para cambiar el estado de la frecuencia, AM o FM
+     */
+    public void cambiarFrecuencia(){
+        if (frecuencia)
+            this.frecuencia = false;
+        else
+            this.frecuencia = true;
+    }
+
+    /*
+     * funcion para guardar una emisora 
+     */
+    public void guardarEmisora(){
+       emisorasGuardadas.add(String.valueOf(emisoraR));
+
+    }
+    /*
+     * funcion para cargar emisora
+     */
+    public double cargarEmisora(){
+        int cont =0;
+        emisoraR = Double.parseDouble(emisorasGuardadas.get(cont));
+        cont++;
+        return emisoraR;
+
+
+    }
 
     // -------- MODO REPRODUCIR -------
 
@@ -128,6 +155,9 @@ public class radio {
            cancionReprodiccion = cancionesSpotify.get(indice);
        }
     }
+
+
+
 
 
 
