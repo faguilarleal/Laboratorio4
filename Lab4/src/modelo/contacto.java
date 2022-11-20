@@ -9,13 +9,25 @@ public class contacto {
     Scanner sn = new Scanner(System.in);
     HashMap<String, Integer> contactos = new HashMap<String, Integer>(); //Hashmap a manera de diccionario, guarda un String y un enteros
 
+    public contacto(String nombre, int numero) {
+        this.nombre = nombre;
+        this.numero = numero;
+    }
+
     void agrContacto(){
-        System.out.println("Ingresar nombre del contacto");
-        nombre = sn.nextLine();
-        System.out.println("Ingresar número del contacto");
-        numero = sn.nextInt();
+        //System.out.println("Ingresar nombre del contacto");
+        //nombre = sn.nextLine();
+        //System.out.println("Ingresar número del contacto");
+        //numero = sn.nextInt();
         //Añadir contacto a lista
-        contactos.put(nombre, numero);
+        //contactos.put(nombre, numero);
+
+        //Contactos pre-definidos.
+        contactos.put("Juan Pablo Solís", 78951234);
+        contactos.put("Esteban Zamorano", 68741125);
+        contactos.put("César Monroy", 74569823);
+        contactos.put("Adrián Recinos", 96784425);
+
     }
     void MostrarContactos(){
         for (String i : contactos.keySet()) {
