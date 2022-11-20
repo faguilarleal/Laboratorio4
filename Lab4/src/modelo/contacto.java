@@ -14,7 +14,7 @@ public class contacto {
         this.numero = numero;
     }
 
-    void agrContacto(){
+    public void agrContacto(){
         //System.out.println("Ingresar nombre del contacto");
         //nombre = sn.nextLine();
         //System.out.println("Ingresar número del contacto");
@@ -29,18 +29,18 @@ public class contacto {
         contactos.put("Adrián Recinos", 96784425);
 
     }
-    void MostrarContactos(){
+    public void MostrarContactos(){
         for (String i : contactos.keySet()) {
             System.out.println("Nombre: " + i + " Número: " + contactos.get(i)); //Imprime el hashmap entero
         }
     }
-    void LlamarContacto(String nombreSel){
+     public void LlamarContacto(String nombreSel){
         System.out.println("Llamando a " + contactos.get(nombreSel) + "..."); //Llama a un contacto del hashmap
     }
-    void FinalizarLLamada(String nombreSel){
+    public void FinalizarLLamada(String nombreSel){
         System.out.println("Llamada finalizada con " + contactos.get(nombreSel) + "..."); //Finaliza una llamada
     }
-    void LlamadaEnEspera(String nombreSel){
+    public void LlamadaEnEspera(String nombreSel){
         System.out.println("La llamada con " + contactos.get(nombreSel) + " está en espera"); //Pone una llamada en espera una llamada
         
     }

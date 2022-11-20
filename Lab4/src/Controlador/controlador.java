@@ -46,17 +46,18 @@ public class controlador {
                 case 4: // cambiar a modo reproduccion
                     break;
                 case 5: // cambiar a modo telefono
+                    menuTelefono();
                     break;
                 case 6: // cambiar a modo productividad
+                    ac.vertiempo();
                     break;
             }
         }
     }
+
 /*
 * "Elija una de las opciones siguientes: \n 1) Cambiar de AM a FM \n 2) Cambiar emisora " +
                 "\n 3) Guardar emisora \n 4) Mostrar emisoras guardadas \n 5) Salir de modo radio ");
-*
-*
 * */
     public void menuRadio(){
         r.cambiarModo("Radio");
@@ -84,7 +85,32 @@ public class controlador {
         }
     }
 
-
+/*
+ * Menu para el modo teléfono del radio
+ */
+    public void menuTelefono(){
+        boolean run  = true;
+        while(run){
+            v.mostrarMensaje(estadoRadio());
+            switch(v.menuTelefono()){
+                case 1: // Mostrar Contactos
+                    ac.MostrarContactos();
+                    break;
+                case 2: // Llamar Contacto
+                    ac.LlamarContacto();
+                    break;
+                case 3: // Modo Espera
+                    ac.PonerEnEspera();
+                    break;
+                case 4: // Finalizar Llamada
+                    ac.FinalizarLLamada();
+                    break;
+                case 5: // salir de modo radio
+                    run = false;
+                    break;
+            }
+        }
+    }
 
 
 

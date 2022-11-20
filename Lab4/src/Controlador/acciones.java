@@ -4,6 +4,8 @@ import modelo.*;
 
 public class acciones implements iProductividad, iRadio, iReproduccion, iTelefono{
     radio r;
+    tiempo clima;
+    contacto contactos;
 
     public acciones(radio r){
         this.r = r;
@@ -19,7 +21,7 @@ public class acciones implements iProductividad, iRadio, iReproduccion, iTelefon
 
     @Override
     public String vertiempo() {
-
+        System.out.println("Se predice un clima de: " + (int)clima.generarTiempo() + " grados");
         return null;
     }
 
@@ -79,13 +81,12 @@ public class acciones implements iProductividad, iRadio, iReproduccion, iTelefon
 
     @Override
     public String MostrarContactos() {
-
+        contactos.MostrarContactos();
         return null;
     }
 
     @Override
     public String LlamarContacto() {
-
         return null;
     }
 
