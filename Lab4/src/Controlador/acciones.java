@@ -50,15 +50,15 @@ public class acciones implements iProductividad, iRadio, iReproduccion, iTelefon
     }
 
     @Override
-    public String seleccionarListaReproduccion() {
-
-        return null;
+    public String seleccionarListaReproduccion(String tipo) {
+        r.setTipoReproduccion(tipo);
+        return "Se ha cambiado a "+tipo;
     }
 
     @Override
-    public String cambiarCancion() {
-
-        return null;
+    public String cambiarCancion(int i) {
+        r.cambiarCancion(i);
+        return "Se ha cambiado la cancion";
     }
 
     @Override

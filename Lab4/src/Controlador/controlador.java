@@ -44,6 +44,7 @@ public class controlador {
                     menuRadio();
                     break;
                 case 4: // cambiar a modo reproduccion
+                    menuReproduccion();
                     break;
                 case 5: // cambiar a modo telefono
                     menuTelefono();
@@ -79,6 +80,38 @@ public class controlador {
                 v.mostrarMensaje(r.getEmisorasGuardadas().toString());
                     break;
                 case 5: // salir de modo radio
+                    bandera = false;
+                    break;
+            }
+        }
+    }
+
+    /*
+    * System.out.println("-------------- MODO REPRODUCCION --------------\n" +
+                "Elija una de las opciones siguientes: \n 1) Colocar un CD \n 2) Canciones MP3 " +
+                "\n 3) Conectar Spotify \n 4) Cambiar cancion " +
+                " 5) Salir de modo reproduccion  ");*/
+
+    public void menuReproduccion(){
+        r.cambiarModo("Reproduccion");
+        boolean bandera = true;
+        ac.seleccionarListaReproduccion("Spotify");
+        while(bandera){
+            v.mostrarMensaje(estadoRadio());
+            switch(v.menuReproduccion()){
+                case 1: // colocar un CD
+                    v.mostrarMensaje(ac.seleccionarListaReproduccion("CD"));
+                    break;
+                case 2: // MP3
+                    v.mostrarMensaje(ac.seleccionarListaReproduccion("MP3"));
+                    break;
+                case 3: // Spotify
+                    v.mostrarMensaje(ac.seleccionarListaReproduccion("Spotify"));
+                    break;
+                case 4: // cambiar cancion
+                    v.mostrarMensaje(ac.cambiarCancion(v.menuMostrarCanciones(r.getListaCanciones())));
+                    break;
+                case 5: // salir de modo reproduccion
                     bandera = false;
                     break;
             }
@@ -126,7 +159,8 @@ public class controlador {
                 mensaje += "\nEmisora: "+r.getEmisoraR(); 
                 mensaje +="\nFrecuencia: "+r.getFrecuencia();
             } else if(r.getModo().equals("Reproduccion")){
-                mensaje += "\nCancion: " ; // agregar atributos canciones
+                mensaje += "\n - Se esta reproduciendo "+r.getTipoReproduccion()+" -";
+                mensaje += "\n Cancion: "+ v.MostraCancion(r.getCancionReprodiccion()) ;
             } else if(r.getModo().equals("Telefono")){
 
             } else if(r.getModo().equals("Productividad")){

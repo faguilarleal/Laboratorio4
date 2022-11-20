@@ -56,7 +56,9 @@ public class radio{
         if (i == 1){
             volumen ++;
         }else{
-            volumen --;
+            if (volumen != 0){
+                volumen --;
+            }
         }
     }
 
@@ -115,7 +117,6 @@ public class radio{
      */
     public void guardarEmisora(){
        emisorasGuardadas.add(String.valueOf(emisoraR));
-
     }
     /*
      * funcion para cargar emisora
@@ -125,8 +126,6 @@ public class radio{
         emisoraR = Double.parseDouble(emisorasGuardadas.get(cont));
         cont++;
         return emisoraR;
-
-
     }
 
     // -------- MODO REPRODUCIR -------
@@ -154,8 +153,17 @@ public class radio{
 
     }
 
+    public cancion getCancionReprodiccion(){
+        return cancionReprodiccion;
+    }
+
     public void setTipoReproduccion(String tipo){
         tipoReproduccion = tipo;
+        cambiarCancion(0);
+    }
+
+    public String getTipoReproduccion(){
+        return tipoReproduccion;
     }
 
     /**

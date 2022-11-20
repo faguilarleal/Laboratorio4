@@ -1,5 +1,7 @@
 package Vista;
 
+import modelo.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class vista {
@@ -41,14 +43,6 @@ public class vista {
         return opi;
     }
 
-    public int menuEmisora(){
-        int opi;
-        System.out.println("Elija una de las opciones siguientes: " +
-                "\n 1) Cambiar emisora para arriba \n 2) Cambiar emisora para abajo");
-        opi = sc.nextInt();
-        return opi;
-    }
-
     public int cambioEmisora(){
         int opi;
         System.out.println("Elija una de las opciones siguientes: \n 1) Siguiente emisora \n 2) Emisora anterior");
@@ -61,9 +55,24 @@ public class vista {
         System.out.println("-------------- MODO REPRODUCCION --------------\n" +
                 "Elija una de las opciones siguientes: \n 1) Colocar un CD \n 2) Canciones MP3 " +
                 "\n 3) Conectar Spotify \n 4) Cambiar cancion " +
-                " 5) Salir de modo reproduccion  ");
+                "\n 5) Salir de modo reproduccion" );
         opi = sc.nextInt();
         return opi;
+    }
+
+    public int menuMostrarCanciones(ArrayList<cancion> can){
+        int opi;
+        System.out.println("Elija la cancion que desee reproducir: ");
+        for (int i = 0; i < can.size() ; i++) {
+            System.out.println((i+1)+") "+MostraCancion(can.get(i)));
+        }
+        opi = sc.nextInt();
+        return opi-1;
+    }
+
+    public String MostraCancion(cancion c){
+        String r = "Nombre: "+ c.getNombre()+", Autor: "+c.getAutor()+ ", Duracion: "+ c.getDuracion();
+        return r;
     }
 
     public int menuTelefono(){

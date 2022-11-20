@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="52499ef0-1323-49a5-8c50-ee4cc3e62f7b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controlador/acciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlador/acciones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controlador/controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controlador/controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/iReproduccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/iReproduccion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vista/vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/vista.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelo/radio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/radio.java" afterDir="false" />
     </list>
@@ -65,5 +67,25 @@
       <updated>1668732799002</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controlador/acciones.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/modelo/radio.java</url>
+          <line>186</line>
+          <properties class="modelo.radio" method="cambiarCancion">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
