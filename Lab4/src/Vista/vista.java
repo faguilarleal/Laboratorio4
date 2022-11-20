@@ -38,7 +38,8 @@ public class vista {
         int opi;
         System.out.println("-------------- MODO RADIO --------------\n" +
                 "Elija una de las opciones siguientes: \n 1) Cambiar de AM a FM \n 2) Cambiar emisora " +
-                "\n 3) Guardar emisora \n 4) Mostrar emisoras guardadas \n 5) Salir de modo radio ");
+                "\n 3) Guardar emisora \n 4) Mostrar emisoras guardadas \n 5) Cargar emisora guardada" +
+                " \n 6) Salir de modo radio ");
         opi = sc.nextInt();
         return opi;
     }
@@ -54,8 +55,8 @@ public class vista {
         int opi;
         System.out.println("-------------- MODO REPRODUCCION --------------\n" +
                 "Elija una de las opciones siguientes: \n 1) Colocar un CD \n 2) Canciones MP3 " +
-                "\n 3) Conectar Spotify \n 4) Cambiar cancion " +
-                "\n 5) Salir de modo reproduccion" );
+                "\n 3) Conectar Spotify \n 4) Escuchar cancion " +
+                "\n 5) Siguiente cancion \n 6) Salir de modo reproduccion" );
         opi = sc.nextInt();
         return opi;
     }
@@ -78,10 +79,10 @@ public class vista {
     public int menuTelefono(){
         int opi;
         System.out.println("-------------- MODO TELEFONO --------------\n" +
-                "Elija una de las opciones siguientes: \n 1) Conectar/desconectar Telefono" +
-                " \n 2) Mostrar contactos " +
-                "\n 3) Llamar contactos \n 4) Finalizar llamada " +
-                " 5) Cambiar llamada en espera  ");
+                "Elija una de las opciones siguientes:  "+
+                " \n 1) Mostrar contactos " +
+                "\n 2) Llamar contactos \n 3) Cambiar llamada en espera  " +
+                "\n 4) Finalizar llamada\n 5) Salir de modo telefono ");
         opi = sc.nextInt();
         return opi;
     }

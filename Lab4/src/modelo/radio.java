@@ -8,27 +8,27 @@ public class radio{
     private int volumen;                                // volumen de la radio
 
     private boolean frecuencia;                          // indica si es AM o FM. Verdadero es AM Y Falso es FM
-    private double emisoraR=80.5;                            // indica la emisora en reproduccion
+    private double emisoraR=80.5;                        // indica la emisora en reproduccion
  
 
 
 
     private ArrayList<String> emisorasGuardadas = new ArrayList<String>();        // indica las emisoras guardadas
 
-    private int cont = 0;                                   //Contador de emisoras
+    private int cont = 0;                                 //Contador de emisoras
 
 
-    private String tipoReproduccion;                    // saber si es cd, mp3 o spotify
+    private String tipoReproduccion;                      // saber si es cd, mp3 o spotify
     private ArrayList<cancion> cancionesCD = new ArrayList<cancion>();        // lista de reproduccion
+    private int contCD = 0;                                   // saber en que cancion esta
     private ArrayList<cancion> cancionsMP3 = new ArrayList<cancion>();
+    private int contMP3 = 0;                                  // saber en que cancion esta
     private ArrayList<cancion> cancionesSpotify = new ArrayList<cancion>();
+    private int contSpotify = 0;                            // saber en que cancion esta
     private cancion cancionReprodiccion;                // cancion que se reproduce
 
     // modo telefono
-    private boolean telefono;                           // indica si existe un telefono conectado
-    private String[] contactos;                         // lista de contactos
-    // modo productividad
-    private String pronostico;                          // guarda el pronostico del tiempo
+    private boolean telefono = false;                           // indica si existe un telefono conectado
 
     // constructor
     public radio(){
@@ -85,6 +85,11 @@ public class radio{
     public double getEmisoraR() {
         return emisoraR;
     }
+
+    /**
+     *funcion que regresa la frecuencia que es booleana
+     * @return String de si es AM o FM
+     */
     public String getFrecuencia(){
         String respuesta = "";
         if (frecuencia){
@@ -105,6 +110,11 @@ public class radio{
         else
             this.frecuencia = true;
     }
+
+    /**
+     * Cambia emisora de 0.5 en 0.5
+     * @param i que indica si se cambia para arriba o abajo la emisora
+     */
     public void cambiarEmisora(int i){
         if (i == 1){
             emisoraR +=0.5;
@@ -112,24 +122,32 @@ public class radio{
             emisoraR -=0.5;
         }
     }
-    /*
-     * funcion para guardar una emisora 
+
+    /**
+     * funcion para guardar una emisora
      */
     public void guardarEmisora(){
        emisorasGuardadas.add(String.valueOf(emisoraR));
     }
-    /*
-     * funcion para cargar emisora
+
+    /**
+     * funcion para cargar emisora de las guardadas
+     * @return la emisora que se reproducira
      */
     public double cargarEmisora(){
-        cont = cont%emisorasGuardadas.size();
-        emisoraR = Double.parseDouble(emisorasGuardadas.get(cont));
-        cont++;
+        if(emisorasGuardadas.size() != 0){
+            cont = cont%emisorasGuardadas.size();
+            emisoraR = Double.parseDouble(emisorasGuardadas.get(cont));
+            cont++;
+        }
         return emisoraR;
     }
 
     // -------- MODO REPRODUCIR -------
 
+    /**
+     * Crea canciones predeterminadas
+     */
     public void crearCanciones(){
         // canciones CD (Folklore)
         cancionesCD.add(new cancion("cardigan", "Taylor Swift", "3:59"));
@@ -157,6 +175,10 @@ public class radio{
         return cancionReprodiccion;
     }
 
+    /**
+     * cambia el tipo de reproduccion y pone la primera cancion por default
+     * @param tipo String de si es CD, MP3 o Spotify
+     */
     public void setTipoReproduccion(String tipo){
         tipoReproduccion = tipo;
         cambiarCancion(0);
@@ -182,6 +204,7 @@ public class radio{
     }
 
     /**
+     * coloca la cancion que el usuario desee
      * @param indice, indica que cancion se escoge
      */
     public void cambiarCancion(int indice){
@@ -194,12 +217,30 @@ public class radio{
        }
     }
 
-
-
-
+    /**
+     * Cambia a la siguiente cancion y si llega a la ultima regresa a la primera por medio de %
+     */
+    public void siguienteCancion(){
+        if (tipoReproduccion == "CD"){
+            contCD ++;
+            cancionReprodiccion = cancionesCD.get(contCD%cancionesCD.size());
+        } else if (tipoReproduccion == "MP3"){
+            contMP3 ++;
+            cancionReprodiccion = cancionsMP3.get(contMP3%cancionsMP3.size());
+        } else if (tipoReproduccion == "Spotify"){
+            contSpotify ++;
+            cancionReprodiccion = cancionesSpotify.get(contSpotify%cancionesSpotify.size());
+        }
+    }
 
 
     // -------- MODO TELEFONO ---------
+    public void conectarDesconectarTel(){
+        if (telefono)
+            this.telefono = false;
+        else
+            this.telefono = true;
+    }
 
     // -------- MODO PRODUCTIVIDAD ------
 

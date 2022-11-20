@@ -50,7 +50,7 @@ public class controlador {
                     menuTelefono();
                     break;
                 case 6: // cambiar a modo productividad
-                    ac.vertiempo();
+                    r.cambiarModo("Productividad");
                     break;
             }
         }
@@ -68,18 +68,21 @@ public class controlador {
             v.mostrarMensaje(estadoRadio());
             switch(v.menuRadio()){
                 case 1: // cambiar am a fm
-                v.mostrarMensaje(ac.cambiarbanda());
+                    v.mostrarMensaje(ac.cambiarbanda());
                     break;
                 case 2: // cambiar emisora
-                v.mostrarMensaje(ac.cambiaremisoras(v.cambioEmisora()));
+                    v.mostrarMensaje(ac.cambiaremisoras(v.cambioEmisora()));
                     break;
                 case 3: // guardar emisora
-                v.mostrarMensaje(ac.guardaremisora());
+                    v.mostrarMensaje(ac.guardaremisora());
                     break;
                 case 4: // mostrar emisoras guardadas
-                v.mostrarMensaje(r.getEmisorasGuardadas().toString());
+                    v.mostrarMensaje(r.getEmisorasGuardadas().toString());
                     break;
-                case 5: // salir de modo radio
+                case 5:
+                    v.mostrarMensaje(ac.cargaremisora());
+                    break;
+                case 6: // salir de modo radio
                     bandera = false;
                     break;
             }
@@ -109,9 +112,12 @@ public class controlador {
                     v.mostrarMensaje(ac.seleccionarListaReproduccion("Spotify"));
                     break;
                 case 4: // cambiar cancion
-                    v.mostrarMensaje(ac.cambiarCancion(v.menuMostrarCanciones(r.getListaCanciones())));
+                    v.mostrarMensaje(ac.escucharCancion(v.menuMostrarCanciones(r.getListaCanciones())));
                     break;
-                case 5: // salir de modo reproduccion
+                case 5: // escuchar cancion
+                    v.mostrarMensaje(ac.cambiarCancion());
+                    break;
+                case 6: // salir de modo reproduccion
                     bandera = false;
                     break;
             }
@@ -119,24 +125,30 @@ public class controlador {
     }
 
 /*
- * Menu para el modo teléfono del radio
+ * System.out.println("-------------- MODO TELEFONO --------------\n" +
+                "Elija una de las opciones siguientes: \n 1) Conectar/desconectar Telefono" +
+                " \n 2) Mostrar contactos " +
+                "\n 3) Llamar contactos \n 4) Finalizar llamada " +
+                " 5) Cambiar llamada en espera  ");
  */
     public void menuTelefono(){
+        r.cambiarModo("Telefono");
         boolean run  = true;
         while(run){
+
             v.mostrarMensaje(estadoRadio());
             switch(v.menuTelefono()){
                 case 1: // Mostrar Contactos
-                    ac.MostrarContactos();
+                    v.mostrarMensaje(ac.MostrarContactos());
                     break;
                 case 2: // Llamar Contacto
-                    ac.LlamarContacto();
+                    v.mostrarMensaje(ac.LlamarContacto());
                     break;
                 case 3: // Modo Espera
-                    ac.PonerEnEspera();
+                    v.mostrarMensaje(ac.PonerEnEspera());
                     break;
                 case 4: // Finalizar Llamada
-                    ac.FinalizarLLamada();
+                    v.mostrarMensaje(ac.FinalizarLLamada());
                     break;
                 case 5: // salir de modo radio
                     run = false;
@@ -162,9 +174,9 @@ public class controlador {
                 mensaje += "\n - Se esta reproduciendo "+r.getTipoReproduccion()+" -";
                 mensaje += "\n Cancion: "+ v.MostraCancion(r.getCancionReprodiccion()) ;
             } else if(r.getModo().equals("Telefono")){
-
+                mensaje += "\n Telefono conectado";
             } else if(r.getModo().equals("Productividad")){
-
+                mensaje += "\n"+(ac.vertiempo());
             }
         }else{
             mensaje += "Estado: apagado";

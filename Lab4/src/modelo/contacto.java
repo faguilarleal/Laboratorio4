@@ -4,23 +4,14 @@ import java.util.Scanner;
 
 
 public class contacto {
-    String nombre;
-    int numero;
     Scanner sn = new Scanner(System.in);
     HashMap<String, Integer> contactos = new HashMap<String, Integer>(); //Hashmap a manera de diccionario, guarda un String y un enteros
 
-    public contacto(String nombre, int numero) {
-        this.nombre = nombre;
-        this.numero = numero;
+    public contacto() {
+        agrContacto();
     }
 
     public void agrContacto(){
-        //System.out.println("Ingresar nombre del contacto");
-        //nombre = sn.nextLine();
-        //System.out.println("Ingresar número del contacto");
-        //numero = sn.nextInt();
-        //Añadir contacto a lista
-        //contactos.put(nombre, numero);
 
         //Contactos pre-definidos.
         contactos.put("Juan Pablo Solís", 78951234);
@@ -29,20 +20,24 @@ public class contacto {
         contactos.put("Adrián Recinos", 96784425);
 
     }
-    public void MostrarContactos(){
+    public String MostrarContactos(){
+        String mensaje = "";
         for (String i : contactos.keySet()) {
-            System.out.println("Nombre: " + i + " Número: " + contactos.get(i)); //Imprime el hashmap entero
+             mensaje += ("\nNombre: " + i + ", Número: " + contactos.get(i)); //Imprime el hashmap entero
         }
+        return mensaje;
     }
-     public void LlamarContacto(String nombreSel){
-        System.out.println("Llamando a " + contactos.get(nombreSel) + "..."); //Llama a un contacto del hashmap
+     public String LlamarContacto(String nombreSel){
+        String mensaje = ("Llamando a " + contactos.get(nombreSel) + "..."); //Llama a un contacto del hashmap
+        return mensaje;
     }
-    public void FinalizarLLamada(String nombreSel){
-        System.out.println("Llamada finalizada con " + contactos.get(nombreSel) + "..."); //Finaliza una llamada
+    public String FinalizarLLamada(String nombreSel){
+        String mensaje=("Llamada finalizada con " + contactos.get(nombreSel) + "..."); //Finaliza una llamada
+        return mensaje;
     }
-    public void LlamadaEnEspera(String nombreSel){
-        System.out.println("La llamada con " + contactos.get(nombreSel) + " está en espera"); //Pone una llamada en espera una llamada
-        
+    public String LlamadaEnEspera(String nombreSel){
+        String mensaje =("La llamada con " + contactos.get(nombreSel) + " está en espera"); //Pone una llamada en espera una llamada
+        return mensaje;
     }
 
 

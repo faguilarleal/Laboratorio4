@@ -4,8 +4,8 @@ import modelo.*;
 
 public class acciones implements iProductividad, iRadio, iReproduccion, iTelefono{
     radio r;
-    tiempo clima;
-    contacto contactos;
+    tiempo clima = new tiempo();
+    contacto contactos = new contacto();
 
     public acciones(radio r){
         this.r = r;
@@ -21,8 +21,7 @@ public class acciones implements iProductividad, iRadio, iReproduccion, iTelefon
 
     @Override
     public String vertiempo() {
-        System.out.println("Se predice un clima de: " + (int)clima.generarTiempo() + " grados");
-        return null;
+        return ("Se predice un clima de: " + (int) clima.generarTiempo() + " grados");
     }
 
     @Override
@@ -45,8 +44,7 @@ public class acciones implements iProductividad, iRadio, iReproduccion, iTelefon
 
     @Override
     public String cargaremisora() {
-        r.cargarEmisora();
-        return "Se ha cargado la emisora";
+        return "Se ha cargado la emisora " + r.cargarEmisora();
     }
 
     @Override
@@ -56,50 +54,47 @@ public class acciones implements iProductividad, iRadio, iReproduccion, iTelefon
     }
 
     @Override
-    public String cambiarCancion(int i) {
+    public String cambiarCancion() {
+        r.siguienteCancion();
+        return "Se ha cambiado a la siguiente cancion";
+    }
+
+    @Override
+    public String escucharCancion(int i) {
         r.cambiarCancion(i);
         return "Se ha cambiado la cancion";
     }
 
     @Override
-    public String escucharCancion() {
-
-        return null;
-    }
-
-    @Override
     public String Conectar() {
 
-        return null;
+        return "telefono conectado";
     }
 
     @Override
     public String desconectar() {
 
-        return null;
+        return "Telefono desconectado";
     }
 
     @Override
     public String MostrarContactos() {
-        contactos.MostrarContactos();
-        return null;
+        return contactos.MostrarContactos();
     }
 
     @Override
     public String LlamarContacto() {
-        return null;
+        return contactos.LlamarContacto("Esteban Zamorano");
     }
 
     @Override
     public String FinalizarLLamada() {
-
-        return null;
+        return contactos.FinalizarLLamada("Esteban Zamorano");
     }
 
     @Override
     public String PonerEnEspera() {
-
-        return null;
+        return contactos.LlamadaEnEspera("Esteban Zamorano");
     }
 
 }

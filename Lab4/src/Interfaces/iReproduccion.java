@@ -5,8 +5,8 @@ public interface iReproduccion {
     public String seleccionarListaReproduccion(String tipo);
 
     //para cambiar de cancion
-    public String cambiarCancion(int i);
+    public String cambiarCancion();
 
     //ensena la cancion que se esta escuchando
-    public String escucharCancion();
+    public String escucharCancion(int i);
 }
