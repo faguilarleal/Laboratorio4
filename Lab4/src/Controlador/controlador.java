@@ -148,7 +148,7 @@ public class controlador {
                     v.mostrarMensaje(ac.PonerEnEspera());
                     break;
                 case 4: // Finalizar Llamada
-                    v.mostrarMensaje(ac.FinalizarLLamada());
+                    v.mostrarMensaje(ac.FinalizarLLamada()  );
                     break;
                 case 5: // salir de modo radio
                     run = false;

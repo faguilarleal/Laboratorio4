@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 
 public class contacto {
-    Scanner sn = new Scanner(System.in);
     HashMap<String, Integer> contactos = new HashMap<String, Integer>(); //Hashmap a manera de diccionario, guarda un String y un enteros
 
     public contacto() {
